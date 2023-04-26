@@ -6,10 +6,20 @@ function Transactions() {
 
     // Add useEffect hook
     useEffect(() => {
-      fetch('https://my-json-server.typicode.com/James-Kamau3/react-code-challenge1/transactions')
+      fetch('https://react-challenge1.onrender.com/transactions')
         .then((r) => r.json())
         .then((json) => setTransactions(json));
     }, []); 
+
+    const handleDelete = (id) => {
+      fetch(`https://react-challenge1.onrender.com/transactions/${id}`,{
+        method: 'DELETE',
+      })
+      .then(() => {
+        setTransactions(transactions.filter(transaction => transaction.id !== id));
+      })
+      .catch(error => console.error(error));
+    }
 
   return (
     <div className="App">
@@ -31,6 +41,7 @@ function Transactions() {
             <td>{transaction.description}</td>
             <td>{transaction.category}</td>
             <td>{transaction.amount}</td>
+            <td><button id='btn' onClick={() => handleDelete(transaction.id)}>Delete</button></td>
           </tr>
         ))}
       </tbody>

@@ -12,21 +12,13 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const transaction = {date, description, category, amount}
-    fetch('https://my-json-server.typicode.com/James-Kamau3/react-code-challenge1/transactions',{
+    fetch('https://react-challenge1.onrender.com/transactions',{
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(transaction),
     }).then(console.log(transaction))
   }
  
-
-  const handleDelete = (e) => {
-    e.preventDefault();
-    fetch("https://my-json-server.typicode.com/James-Kamau3/react-code-challenge1/transactions",{
-      method: "DELETE",
-    }).then(console.log("Deleted"))
-  }
-
   return (
     <div className='Form'>
     <form>
@@ -43,7 +35,7 @@ function Form() {
     <input type="number" value={amount}
     onChange={(e) => setAmount(e.target.value)}/><br></br>
     <button onClick={handleSubmit}>Add Transaction</button>
-    <button onClick={handleDelete} >Remove Added Transaction</button>
+    <button >Remove Added Transaction</button>
         
     </form>
     </div>
