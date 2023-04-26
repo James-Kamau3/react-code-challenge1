@@ -35,7 +35,7 @@ function Form() {
     <input type="number" value={amount}
     onChange={(e) => setAmount(e.target.value)}/><br></br>
     <button onClick={handleSubmit}>Add Transaction</button>
-    <button >Remove Added Transaction</button>
+    
         
     </form>
     </div>
