@@ -6,7 +6,7 @@ function Transactions() {
 
     // Add useEffect hook
     useEffect(() => {
-      fetch("http://localhost:3000/transactions")
+      fetch('https://my-json-server.typicode.com/James-Kamau3/react-code-challenge1/transactions')
         .then((r) => r.json())
         .then((json) => setTransactions(json));
     }, []); 

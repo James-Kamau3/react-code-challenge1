@@ -12,7 +12,7 @@ function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const transaction = {date, description, category, amount}
-    fetch('http://localhost:3000/transactions/',{
+    fetch('https://my-json-server.typicode.com/James-Kamau3/react-code-challenge1/transactions',{
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(transaction),
@@ -22,7 +22,7 @@ function Form() {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    fetch("http://localhost:3000/transactions",{
+    fetch("https://my-json-server.typicode.com/James-Kamau3/react-code-challenge1/transactions",{
       method: "DELETE",
     }).then(console.log("Deleted"))
   }
